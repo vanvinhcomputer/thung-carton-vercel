@@ -1,0 +1,278 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  
+  <!-- Essential SEO -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  <link rel="canonical" href="https://lading.thungcartonbienhoa.vn/" />
+  
+  <!-- Additional SEO Meta -->
+  <meta name="author" content="Thùng Carton Biên Hòa" />
+  <meta name="keywords" content="thùng carton, hộp carton, bao bì carton, thùng giấy, hộp đóng gói, carton 5 lớp, carton 3 lớp, Biên Hòa, Đồng Nai" />
+  <meta name="geo.region" content="VN-75" />
+  <meta name="geo.placename" content="Biên Hòa, Đồng Nai" />
+  <meta name="language" content="vi" />
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="general" />
+  <meta name="revisit-after" content="7 days" />
+  
+  <!-- Business Information -->
+  <meta name="business.name" content="Bao Bì Carton Hoàng Nam Như" />
+  <meta name="business.phone" content="+84-375-201-015" />
+  <meta name="business.address" content="Biên Hòa, Đồng Nai, Vietnam" />
+  
+  <!-- Critical Resource Preloading -->
+  <link rel="preload" href="/images/hero-optimized.webp" as="image" type="image/webp" fetchpriority="high">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lading.thungcartonbienhoa.vn/" />
+  <meta property="og:image" content="https://lading.thungcartonbienhoa.vn/images/hero-optimized.webp" />
+  
+  <!-- Enhanced Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Bao Bì Carton Hoàng Nam Như",
+    "alternateName": "Thùng Carton Biên Hòa",
+    "url": "https://lading.thungcartonbienhoa.vn",
+    "mainEntityOfPage": "https://lading.thungcartonbienhoa.vn",
+    "telephone": "+84-375-201-015",
+    "description": "Nhà sản xuất thùng carton chuyên nghiệp tại Biên Hòa, Đồng Nai. Cung cấp thùng carton 5 lớp, 3 lớp, hộp ship COD, hộp nắp gài chất lượng cao.",
+    "foundingDate": "2020",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Biên Hòa", 
+      "addressRegion": "Đồng Nai",
+      "addressCountry": "VN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+84-375-201-015",
+      "email": "admin@thungcartonbienhoa.vn",
+      "contactType": "customer service",
+      "availableLanguage": "Vietnamese"
+    },
+    "sameAs": [
+      "https://thungcartonbienhoa.vn"
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "description": "Thùng carton và bao bì đóng gói chất lượng cao"
+    }
+  }
+  </script>
+
+  <!-- Critical CSS with Mobile Optimizations -->
+  <style>
+    body { 
+      margin: 0; 
+      font-family: system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Screen reader only content */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    
+    /* Critical CLS Prevention */
+    .hero-title {
+      min-height: 5.5rem;
+      line-height: 1.1;
+      contain: layout size;
+      transform: translateZ(0);
+    }
+    
+    /* Complete video controls elimination */
+    video::-webkit-media-controls,
+    video::-webkit-media-controls-enclosure,
+    video::-webkit-media-controls-panel,
+    video::-webkit-media-controls-play-button,
+    video::-webkit-media-controls-start-playback-button,
+    video::-webkit-media-controls-timeline,
+    video::-webkit-media-controls-current-time-display,
+    video::-webkit-media-controls-time-remaining-display,
+    video::-webkit-media-controls-mute-button,
+    video::-webkit-media-controls-volume-slider {
+      display: none !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    
+    /* Hero section layout stability */
+    .hero-section {
+      contain: layout style size;
+      min-height: 100vh;
+      transform: translateZ(0);
+    }
+    
+    .hero-content-container {
+      contain: layout size;
+      min-height: 100vh;
+      width: 100%;
+      transform: translateZ(0);
+    }
+    
+    /* Video container layout prevention */
+    video {
+      contain: layout size !important;
+      transform: translateZ(0);
+    }
+    
+    /* Prevent all layout shifts */
+    * {
+      box-sizing: border-box;
+    }
+    
+    img, video {
+      max-width: 100%;
+      height: auto;
+      contain: layout;
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 16rem;
+      object-fit: cover;
+      aspect-ratio: 16/10;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    
+    .product-image:not(.loaded) {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    /* Mobile touch optimizations */
+    @media (max-width: 768px) {
+      * {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      
+      button, a {
+        min-height: 44px;
+        min-width: 44px;
+      }
+      
+      .product-image {
+        height: 12rem;
+      }
+    }
+    
+    /* Performance optimizations */
+    video {
+      will-change: transform;
+    }
+    
+    .scroll-container {
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+    }
+  </style>
+</head>
+<body>
+  <slot />
+  
+  <!-- Critical Performance & Analytics -->
+  <script>
+    // Page initialization without forced scrolling
+    
+    // Critical CSS injection first
+    const criticalCSS = `
+      .hero-section{min-height:100vh;contain:layout style;position:relative}
+      .hero-content-container{contain:layout;min-height:100vh;width:100%}
+      video::-webkit-media-controls{display:none!important}
+      video::-webkit-media-controls-enclosure{display:none!important}
+      .hero-content-animate{opacity:0;transform:translateY(20px);animation:fadeInUp .8s ease-out .2s forwards}
+      @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+    `;
+    const style = document.createElement('style');
+    style.textContent = criticalCSS;
+    document.head.insertBefore(style, document.head.firstChild);
+    
+    // Preload critical resources
+    const preloadResources = [
+      { href: '/images/hero-optimized.webp', as: 'image', type: 'image/webp' },
+      { href: '/images/hero-optimized.jpg', as: 'image', type: 'image/jpeg' }
+    ];
+    preloadResources.forEach(resource => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.href = resource.href;
+      link.as = resource.as;
+      if (resource.type) link.type = resource.type;
+      document.head.appendChild(link);
+    });
+    
+    // Initialize Vercel Speed Insights for performance monitoring
+    import('@vercel/speed-insights').then((module) => {
+      if (module.inject) {
+        module.inject();
+        console.log('Speed Insights initialized for performance tracking');
+      }
+    }).catch(() => {
+      console.log('Speed Insights not available in development');
+    });
+    
+    // Defer non-critical scripts
+    requestIdleCallback(() => {
+      Promise.all([
+        import('/src/lib/analytics.js').then(({ initAnalytics }) => initAnalytics()),
+        import('/src/lib/performance.js').then(({ initPerformanceOptimizations }) => initPerformanceOptimizations()),
+        import('/src/lib/tracking.js').then(({ initGlobalTracking, initVideoTracking, initScrollTracking }) => {
+          initGlobalTracking();
+          initVideoTracking();
+          initScrollTracking();
+        }),
+        import('/src/lib/auto-tracking.js').then(({ initAutoTracking, initPerformanceMonitoring, initMobileOptimizations, initLazyLoading }) => {
+          initAutoTracking();
+          initPerformanceMonitoring();
+          initMobileOptimizations();
+          initLazyLoading();
+        })
+      ]).catch(() => {});
+    });
+  </script>
+</body>
+</html>

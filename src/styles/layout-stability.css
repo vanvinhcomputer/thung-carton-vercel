@@ -1,0 +1,223 @@
+/* Layout Stability Optimizations for CLS Prevention */
+
+/* Hero Section Layout Containment */
+.hero-section {
+  contain: layout style;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Video Container with Aspect Ratio */
+.video-container {
+  aspect-ratio: 16/9;
+  contain: layout;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  contain: layout;
+  pointer-events: none;
+}
+
+/* Hide Video Controls Completely */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+/* Text Content Layout Stability */
+.hero-title {
+  min-height: 200px;
+  contain: layout;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-subtitle {
+  min-height: 80px;
+  contain: layout;
+}
+
+.hero-description {
+  min-height: 120px;
+  contain: layout;
+}
+
+/* CTA Buttons Layout */
+.cta-container {
+  contain: layout;
+  min-height: 60px;
+}
+
+.cta-button {
+  contain: layout;
+  min-height: 48px;
+  min-width: 200px;
+}
+
+/* Stats Grid Layout */
+.stats-grid {
+  contain: layout;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  min-height: 120px;
+}
+
+.stat-card {
+  contain: layout;
+  min-height: 100px;
+  aspect-ratio: 1;
+}
+
+/* Image Loading Optimization */
+img {
+  contain: layout;
+  max-width: 100%;
+  height: auto;
+}
+
+img[loading="lazy"] {
+  min-height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .hero-title {
+    min-height: 150px;
+  }
+  
+  .hero-subtitle {
+    min-height: 60px;
+  }
+  
+  .hero-description {
+    min-height: 100px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    min-height: 300px;
+  }
+  
+  .stat-card {
+    min-height: 80px;
+  }
+}
+
+/* Container Queries for Dynamic Layouts */
+@container (min-width: 768px) {
+  .hero-content {
+    contain: layout;
+    max-width: 50%;
+  }
+}
+
+@container (max-width: 767px) {
+  .hero-content {
+    contain: layout;
+    max-width: 100%;
+  }
+}
+
+/* Prevent Flash of Unstyled Content */
+.hero-content-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Layout Shift Prevention for Dynamic Content */
+.dynamic-content {
+  contain: layout size;
+  min-height: 1px;
+}
+
+.dynamic-content:empty {
+  min-height: 0;
+}
+
+/* Performance Optimization */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* GPU Acceleration for Smooth Animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Preload Critical Resources */
+.critical-resource {
+  contain: layout;
+  position: relative;
+}
+
+.critical-resource::before {
+  content: "";
+  display: block;
+  aspect-ratio: inherit;
+}
+
+/* Touch Feedback without Layout Shift */
+.touch-feedback {
+  position: relative;
+  overflow: hidden;
+}
+
+.touch-feedback::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.touch-feedback:active::after {
+  opacity: 1;
+  transform: scale(1);
+}

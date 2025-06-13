@@ -1,0 +1,17 @@
+{
+  "name": "Thùng Carton Biên Hòa - Nhà Máy Sản Xuất",
+  "short_name": "Thùng Carton BH",
+  "description": "Nhà máy sản xuất thùng carton chất lượng cao tại Biên Hòa",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#1e40af",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

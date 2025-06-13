@@ -1,0 +1,29 @@
+{
+  "name": "thung-carton-bienhoa",
+  "version": "1.0.0",
+  "description": "Vietnamese B2B landing page for carton box manufacturing",
+  "main": "server.js",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0 --port 5000",
+    "start": "astro dev --host 0.0.0.0 --port 5000",
+    "build": "astro build",
+    "preview": "node server.js"
+  },
+  "keywords": [
+    "carton",
+    "manufacturing",
+    "vietnam",
+    "landing-page"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/vercel": "^8.1.5",
+    "@vercel/speed-insights": "^1.2.0",
+    "astro": "^5.9.2",
+    "express": "^5.1.0",
+    "sharp": "^0.34.2"
+  },
+  "type": "module"
+}

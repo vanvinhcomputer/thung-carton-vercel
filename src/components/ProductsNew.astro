@@ -1,0 +1,802 @@
+---
+// Products section with authentic uploaded images
+---
+
+<section id="san-pham" class="py-16 bg-gradient-to-br from-slate-50 to-gray-100" role="region" aria-labelledby="products-title">
+  <div class="container mx-auto px-6 max-w-7xl">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 id="products-title" class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+        Sản Phẩm Của Chúng Tôi
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Danh mục sản phẩm đa dạng với chất lượng xuất sắc, đáp ứng mọi nhu cầu đóng gói của doanh nghiệp
+      </p>
+    </div>
+
+    <!-- Product Category Tabs -->
+    <div class="mb-12">
+      <div class="flex flex-wrap justify-center gap-2 bg-white p-2 rounded-2xl shadow-lg border border-gray-100 max-w-4xl mx-auto">
+        <button class="product-tab active px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white shadow-lg" data-category="carton-5-lop" onclick="window.switchProductTab && window.switchProductTab('carton-5-lop', this)">
+          Thùng Carton 5 Lớp
+        </button>
+        <button class="product-tab px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 text-gray-600 hover:bg-gray-100 hover:text-gray-800" data-category="carton-3-lop" onclick="window.switchProductTab && window.switchProductTab('carton-3-lop', this)">
+          Thùng Carton 3 Lớp
+        </button>
+        <button class="product-tab px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 text-gray-600 hover:bg-gray-100 hover:text-gray-800" data-category="hop-ship-cod" onclick="window.switchProductTab && window.switchProductTab('hop-ship-cod', this)">
+          Hộp Ship COD
+        </button>
+        <button class="product-tab px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 text-gray-600 hover:bg-gray-100 hover:text-gray-800" data-category="hop-nap-gai" onclick="window.switchProductTab && window.switchProductTab('hop-nap-gai', this)">
+          Hộp Nắp Gài
+        </button>
+        <button class="product-tab px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 text-gray-600 hover:bg-gray-100 hover:text-gray-800" data-category="tam-lot" onclick="window.switchProductTab && window.switchProductTab('tam-lot', this)">
+          Tấm Lót
+        </button>
+      </div>
+    </div>
+
+    <!-- Products Grid Container -->
+    <div id="products-container" class="min-h-[600px]" style="contain: layout;">
+      <!-- Products Grid -->
+      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <!-- Products will be loaded here dynamically -->
+      </div>
+
+      <!-- Pagination -->
+      <div id="pagination-container" class="flex justify-center items-center space-x-2">
+        <!-- Pagination will be loaded here dynamically -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Product data from uploaded authentic images
+  const productData = {
+    'carton-5-lop': [
+      {
+        id: 1,
+        name: 'Thùng 50x40x40 Cm Có Lỗ',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng 50x40x40 Cm Có Lỗ.jpg',
+        alt: 'Thùng carton 5 lớp 50x40x40 cm có lỗ thông gió',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 2,
+        name: 'Thùng 50x40x40 Cm',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng 50x40x40 Cm.jpg',
+        alt: 'Thùng carton 5 lớp 50x40x40 cm chuẩn',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 3,
+        name: 'Thùng 60x40x40 Cm',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng 60x40x40 Cm.jpg',
+        alt: 'Thùng carton 5 lớp 60x40x40 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 4,
+        name: 'Thùng 60x40x40 Có lỗ',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng 60x40x40 Có lỗ.jpg',
+        alt: 'Thùng carton 5 lớp 60x40x40 cm có lỗ thông gió',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 5,
+        name: 'Thùng Bưởi Tân Triều',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Bưởi Tân Triều.jpg',
+        alt: 'Thùng carton chuyên dụng đựng bưởi Tân Triều',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 6,
+        name: 'Thùng Bưởi',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Bưởi.jpg',
+        alt: 'Thùng carton chuyên dụng đựng bưởi',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 7,
+        name: 'Thùng Chuối',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Chuối.jpg',
+        alt: 'Thùng carton chuyên dụng đựng chuối',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 8,
+        name: 'Thùng Cơ Khí',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Cơ Khí.jpg',
+        alt: 'Thùng carton cho ngành cơ khí',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 9,
+        name: 'Thùng Dưa Hấu',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Dưa Hấu.jpg',
+        alt: 'Thùng carton chuyên dụng đựng dưa hấu',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 10,
+        name: 'Thùng Gà 44x18x30 Cm',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Gà 44x18x30 Cm.png',
+        alt: 'Thùng carton đựng gà 44x18x30 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 11,
+        name: 'Thùng Gà 60x24x38 Cm',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Gà 60x24x38 Cm.png',
+        alt: 'Thùng carton đựng gà 60x24x38 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 12,
+        name: 'Thùng Gỗ',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Gỗ.jpg',
+        alt: 'Thùng carton chuyên dụng đựng gỗ',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 13,
+        name: 'Thùng Lan Hồ Điệp',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Lan Hồ Điệp.jpg',
+        alt: 'Thùng carton chuyên dụng đựng lan hồ điệp',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 14,
+        name: 'Thùng Nước Giặt',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Nước Giặt.jpg',
+        alt: 'Thùng carton đựng nước giặt',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 15,
+        name: 'Thùng Rượu',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Rượu.jpg',
+        alt: 'Thùng carton chuyên dụng đựng rượu',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 16,
+        name: 'Thùng Sầu Riêng',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Sầu Riêng.jpg',
+        alt: 'Thùng carton chuyên dụng đựng sầu riêng',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 17,
+        name: 'Thùng Thủy Sản',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Thủy Sản.jpg',
+        alt: 'Thùng carton chuyên dụng đựng thủy sản',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 18,
+        name: 'Thùng Xuất Khẩu',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Xuất Khẩu.jpg',
+        alt: 'Thùng carton xuất khẩu chất lượng cao',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 19,
+        name: 'Thùng Đựng Lan Có Lỗ',
+        image: '/images/products/Thùng Carton 5 Lớp/Thùng Đựng Lan Có Lỗ.jpg',
+        alt: 'Thùng carton đựng lan có lỗ thông gió',
+        specs: { price: 'Liên hệ' }
+      }
+    ],
+    'carton-3-lop': [
+      {
+        id: 20,
+        name: 'Thùng Bánh Ngọt',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Bánh Ngọt.jpg',
+        alt: 'Thùng carton 3 lớp đựng bánh ngọt',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 21,
+        name: 'Thùng Bưởi Có Tay Cầm',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Bưởi Có Tay Cầm.jpg',
+        alt: 'Thùng carton 3 lớp đựng bưởi có tay cầm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 22,
+        name: 'Thùng Con Kê Bê Tông',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Con Kê Bê Tông.jpg',
+        alt: 'Thùng carton 3 lớp con kê bê tông',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 23,
+        name: 'Thùng Cua Cà Mau',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Cua Cà Mau.jpg',
+        alt: 'Thùng carton 3 lớp đựng cua Cà Mau',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 24,
+        name: 'Thùng Có Quai Xách',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Có Quai Xách.png',
+        alt: 'Thùng carton 3 lớp có quai xách',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 25,
+        name: 'Thùng Dr. Mai',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Dr. Mai.jpg',
+        alt: 'Thùng carton 3 lớp Dr. Mai',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 26,
+        name: 'Thùng Hàng Tiêu Dùng',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Hàng Tiêu Dùng.jpg',
+        alt: 'Thùng carton 3 lớp hàng tiêu dùng',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 27,
+        name: 'Thùng Mâm Kệ Siêu Thị',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Mâm Kệ Siêu Thị.jpg',
+        alt: 'Thùng carton 3 lớp mâm kệ siêu thị',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 28,
+        name: 'Thùng Mỹ Phẩm',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Mỹ Phẩm.jpg',
+        alt: 'Thùng carton 3 lớp đựng mỹ phẩm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 29,
+        name: 'Thùng Nước Đóng Chai',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Nước Đóng Chai.jpg',
+        alt: 'Thùng carton 3 lớp đựng nước đóng chai',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 30,
+        name: 'Thùng Than Sạch',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Than Sạch.jpg',
+        alt: 'Thùng carton 3 lớp đựng than sạch',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 31,
+        name: 'Thùng Trà xanh Atiso',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Trà xanh Atiso.jpg',
+        alt: 'Thùng carton 3 lớp trà xanh Atiso',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 32,
+        name: 'Thùng Điện Tử',
+        image: '/images/products/Thùng Carton 3 Lớp/Thùng Điện Tử.jpg',
+        alt: 'Thùng carton 3 lớp đựng điện tử',
+        specs: { price: 'Liên hệ' }
+      }
+    ],
+    'hop-ship-cod': [
+      {
+        id: 33,
+        name: 'Hộp 10x10x10 Cm',
+        image: '/images/products/Hộp Ship COD/10x10x10 Cm.jpg',
+        alt: 'Hộp ship COD 10x10x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 34,
+        name: 'Hộp 10x10x8 Cm',
+        image: '/images/products/Hộp Ship COD/10x10x8 Cm.jpg',
+        alt: 'Hộp ship COD 10x10x8 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 35,
+        name: 'Hộp 12x10x5 Cm',
+        image: '/images/products/Hộp Ship COD/12x10x5 Cm.jpg',
+        alt: 'Hộp ship COD 12x10x5 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 36,
+        name: 'Hộp 12x6x6 Cm',
+        image: '/images/products/Hộp Ship COD/12x6x6 Cm.jpg',
+        alt: 'Hộp ship COD 12x6x6 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 37,
+        name: 'Hộp 13x10x7 Cm',
+        image: '/images/products/Hộp Ship COD/13x10x7 Cm.jpg',
+        alt: 'Hộp ship COD 13x10x7 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 38,
+        name: 'Hộp 15x10x10 Cm',
+        image: '/images/products/Hộp Ship COD/15x10x10 Cm.jpg',
+        alt: 'Hộp ship COD 15x10x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 39,
+        name: 'Hộp 15x12x10 Cm',
+        image: '/images/products/Hộp Ship COD/15x12x10 Cm.jpg',
+        alt: 'Hộp ship COD 15x12x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 40,
+        name: 'Hộp 16x10x5 Cm',
+        image: '/images/products/Hộp Ship COD/16x10x5 Cm.jpg',
+        alt: 'Hộp ship COD 16x10x5 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 41,
+        name: 'Hộp 16x12x6 Cm',
+        image: '/images/products/Hộp Ship COD/16x12x6 Cm.jpg',
+        alt: 'Hộp ship COD 16x12x6 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 42,
+        name: 'Hộp 16x6x6 Cm',
+        image: '/images/products/Hộp Ship COD/16x6x6 Cm.jpg',
+        alt: 'Hộp ship COD 16x6x6 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 43,
+        name: 'Hộp 16x8x8 Cm',
+        image: '/images/products/Hộp Ship COD/16x8x8 Cm.jpg',
+        alt: 'Hộp ship COD 16x8x8 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 44,
+        name: 'Hộp 18x10x8 Cm',
+        image: '/images/products/Hộp Ship COD/18x10x8 Cm.jpg',
+        alt: 'Hộp ship COD 18x10x8 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 45,
+        name: 'Hộp 18x12x12 Cm',
+        image: '/images/products/Hộp Ship COD/18x12x12 Cm.jpg',
+        alt: 'Hộp ship COD 18x12x12 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 46,
+        name: 'Hộp 18x15x10 Cm',
+        image: '/images/products/Hộp Ship COD/18x15x10 Cm.jpg',
+        alt: 'Hộp ship COD 18x15x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 47,
+        name: 'Hộp 18x8x6 Cm',
+        image: '/images/products/Hộp Ship COD/18x8x6 Cm.jpg',
+        alt: 'Hộp ship COD 18x8x6 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 48,
+        name: 'Hộp 20x10x10 Cm',
+        image: '/images/products/Hộp Ship COD/20x10x10 Cm.jpg',
+        alt: 'Hộp ship COD 20x10x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 49,
+        name: 'Hộp 20x10x5 Cm',
+        image: '/images/products/Hộp Ship COD/20x10x5 Cm.jpg',
+        alt: 'Hộp ship COD 20x10x5 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 50,
+        name: 'Hộp 20x12x10 Cm',
+        image: '/images/products/Hộp Ship COD/20x12x10 Cm.jpg',
+        alt: 'Hộp ship COD 20x12x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 51,
+        name: 'Hộp 20x15x10 Cm',
+        image: '/images/products/Hộp Ship COD/20x15x10 Cm.jpg',
+        alt: 'Hộp ship COD 20x15x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 52,
+        name: 'Hộp 20x15x15 Cm',
+        image: '/images/products/Hộp Ship COD/20x15x15 Cm.jpg',
+        alt: 'Hộp ship COD 20x15x15 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 53,
+        name: 'Hộp 20x20x15 Cm',
+        image: '/images/products/Hộp Ship COD/20x20x15 Cm.jpg',
+        alt: 'Hộp ship COD 20x20x15 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 54,
+        name: 'Hộp 20x8x8 Cm',
+        image: '/images/products/Hộp Ship COD/20x8x8 Cm.jpg',
+        alt: 'Hộp ship COD 20x8x8 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 55,
+        name: 'Hộp 21x12x14 Cm',
+        image: '/images/products/Hộp Ship COD/21x12x14 Cm.jpg',
+        alt: 'Hộp ship COD 21x12x14 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 56,
+        name: 'Hộp 22x12x13 Cm',
+        image: '/images/products/Hộp Ship COD/22x12x13 Cm.jpg',
+        alt: 'Hộp ship COD 22x12x13 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 57,
+        name: 'Hộp 25x10x10 Cm',
+        image: '/images/products/Hộp Ship COD/25x10x10 Cm.jpg',
+        alt: 'Hộp ship COD 25x10x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 58,
+        name: 'Hộp 25x15x10 Cm',
+        image: '/images/products/Hộp Ship COD/25x15x10 Cm.jpg',
+        alt: 'Hộp ship COD 25x15x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 59,
+        name: 'Hộp 25x15x15 Cm',
+        image: '/images/products/Hộp Ship COD/25x15x15 Cm.jpg',
+        alt: 'Hộp ship COD 25x15x15 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 60,
+        name: 'Hộp 25x20x10 Cm',
+        image: '/images/products/Hộp Ship COD/25x20x10 Cm.jpg',
+        alt: 'Hộp ship COD 25x20x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 61,
+        name: 'Hộp 25x20x15 Cm',
+        image: '/images/products/Hộp Ship COD/25x20x15 Cm.jpg',
+        alt: 'Hộp ship COD 25x20x15 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 62,
+        name: 'Hộp 30x20x10 Cm',
+        image: '/images/products/Hộp Ship COD/30x20x10 Cm.jpg',
+        alt: 'Hộp ship COD 30x20x10 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 63,
+        name: 'Hộp 30x20x15 Cm',
+        image: '/images/products/Hộp Ship COD/30x20x15 Cm.jpg',
+        alt: 'Hộp ship COD 30x20x15 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 64,
+        name: 'Hộp 30x20x20 Cm',
+        image: '/images/products/Hộp Ship COD/30x20x20 Cm.jpg',
+        alt: 'Hộp ship COD 30x20x20 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 65,
+        name: 'Hộp 35x25x15 Cm',
+        image: '/images/products/Hộp Ship COD/35x25x15 Cm.jpg',
+        alt: 'Hộp ship COD 35x25x15 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 66,
+        name: 'Hộp 9x9x6 Cm',
+        image: '/images/products/Hộp Ship COD/9x9x6 Cm.jpg',
+        alt: 'Hộp ship COD 9x9x6 cm',
+        specs: { price: 'Liên hệ' }
+      }
+    ],
+    'hop-nap-gai': [
+      {
+        id: 67,
+        name: 'Hộp 25x25x5 Cm',
+        image: '/images/products/Hộp Nắp Gài/25x25x5 Cm.jpg',
+        alt: 'Hộp nắp gài 25x25x5 cm',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 68,
+        name: 'Nắp Gài Giấy Trắng',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Giấy Trắng.jpg',
+        alt: 'Hộp nắp gài giấy trắng',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 69,
+        name: 'Nắp Gài Gà Quay',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Gà Quay.jpg',
+        alt: 'Hộp nắp gài gà quay',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 70,
+        name: 'Nắp Gài Lẩu Nướng',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Lẩu Nướng.jpg',
+        alt: 'Hộp nắp gài lẩu nướng',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 71,
+        name: 'Nắp Gài Sóng B',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Sóng B.jpg',
+        alt: 'Hộp nắp gài sóng B',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 72,
+        name: 'Nắp Gài Sóng E',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Sóng E.jpg',
+        alt: 'Hộp nắp gài sóng E',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 73,
+        name: 'Nắp Gài Đặc Biệt',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Đặc Biệt.jpg',
+        alt: 'Hộp nắp gài đặc biệt',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 74,
+        name: 'Nắp Gài Đặc Biệt 2',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Đặc Biệt (2).jpg',
+        alt: 'Hộp nắp gài đặc biệt mẫu 2',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 75,
+        name: 'Nắp Gài Đặc Biệt 3',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Đặc Biệt (3).jpg',
+        alt: 'Hộp nắp gài đặc biệt mẫu 3',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 76,
+        name: 'Nắp Gài Đặc Biệt 4',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Đặc Biệt (4).jpg',
+        alt: 'Hộp nắp gài đặc biệt mẫu 4',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 77,
+        name: 'Nắp Gài Đặc Biệt 5',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài Đặc Biệt (5).jpg',
+        alt: 'Hộp nắp gài đặc biệt mẫu 5',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 78,
+        name: 'Nắp Gài',
+        image: '/images/products/Hộp Nắp Gài/Nắp Gài.jpg',
+        alt: 'Hộp nắp gài chuẩn',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 79,
+        name: 'Hộp Nắp Gài Chuyên Nghiệp',
+        image: '/images/products/Hộp Nắp Gài/hop_nap_gai_4.jpg',
+        alt: 'Hộp nắp gài chuyên nghiệp',
+        specs: { price: 'Liên hệ' }
+      }
+    ],
+    'tam-lot': [
+      {
+        id: 80,
+        name: 'Bộ Lót Khe',
+        image: '/images/products/Tấm Lót/Bộ Lót Khe.jpg',
+        alt: 'Bộ lót khe carton',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 81,
+        name: 'Lót Khe',
+        image: '/images/products/Tấm Lót/Lót Khe.jpg',
+        alt: 'Tấm lót khe carton',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 82,
+        name: 'Lót Lỗ',
+        image: '/images/products/Tấm Lót/Lót Lỗ.jpg',
+        alt: 'Tấm lót có lỗ carton',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 83,
+        name: 'Lót Thẻ',
+        image: '/images/products/Tấm Lót/Lót Thẻ.jpg',
+        alt: 'Tấm lót thẻ carton',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 84,
+        name: 'Lót Tròn Có In',
+        image: '/images/products/Tấm Lót/Lót Tròn Có In.jpg',
+        alt: 'Tấm lót tròn có in carton',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 85,
+        name: 'Lót Tròn Dày 5mm',
+        image: '/images/products/Tấm Lót/Lót Tròn Dày 5mm.jpg',
+        alt: 'Tấm lót tròn dày 5mm carton',
+        specs: { price: 'Liên hệ' }
+      },
+      {
+        id: 86,
+        name: 'Lót Tròn Lớn',
+        image: '/images/products/Tấm Lót/Lót Tròn Lớn.jpg',
+        alt: 'Tấm lót tròn lớn carton',
+        specs: { price: 'Liên hệ' }
+      }
+    ]
+  };
+
+  // Pagination state
+  let currentPage = 1;
+  let currentCategory = 'carton-5-lop';
+  const itemsPerPage = 6;
+
+  // Tab switching function
+  window.switchProductTab = function(category, tabElement) {
+    // Update tab states
+    document.querySelectorAll('.product-tab').forEach(tab => {
+      tab.classList.remove('active', 'bg-gradient-to-r', 'from-emerald-600', 'to-emerald-700', 'text-white', 'shadow-lg');
+      tab.classList.add('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-800');
+    });
+    
+    tabElement.classList.add('active', 'bg-gradient-to-r', 'from-emerald-600', 'to-emerald-700', 'text-white', 'shadow-lg');
+    tabElement.classList.remove('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-800');
+    
+    // Update current category and reset page
+    currentCategory = category;
+    currentPage = 1;
+    
+    // Load products for new category
+    loadProducts();
+    
+    // Track category switch
+    if (window.trackEvent) {
+      window.trackEvent('category_switch', 'products', category);
+    }
+  };
+
+  // Load products function with CLS prevention
+  function loadProducts() {
+    const products = productData[currentCategory] || [];
+    const totalPages = Math.ceil(products.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentProducts = products.slice(startIndex, endIndex);
+    
+    // Immediate render without skeleton to prevent CLS
+    renderProducts(currentProducts);
+    renderPagination(totalPages);
+    
+    // Removed auto-scroll to let users start from hero section
+  }
+
+  // Render products function
+  function renderProducts(products) {
+    const grid = document.getElementById('products-grid');
+    
+    grid.innerHTML = products.map((product, index) => `
+      <div class="product-card group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-300 transform hover:-translate-y-2 hover:scale-105">
+        <!-- Product Image -->
+        <div class="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100" style="height: 320px; aspect-ratio: 4/3;">
+          <img 
+            src="${product.image}" 
+            alt="${product.alt}"
+            class="product-image w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-110"
+            loading="${index < 6 ? 'eager' : 'lazy'}"
+            decoding="async"
+            width="400"
+            height="320"
+            onload="this.classList.add('loaded')"
+            onerror="this.style.display='none'"
+            style="object-fit: contain; object-position: center;"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        
+        <!-- Product Content -->
+        <div class="p-4 space-y-4">
+          <!-- Product Name -->
+          <h3 class="font-bold text-gray-800 text-base leading-tight group-hover:text-emerald-700 transition-colors duration-300 text-center">
+            ${product.name}
+          </h3>
+          
+          <!-- Price -->
+          <div class="text-center">
+            <span class="text-emerald-800 font-bold text-lg">
+              ${product.specs.price || 'Liên hệ'}
+            </span>
+          </div>
+          
+          <!-- Order Now Button -->
+          <a href="https://zalo.me/0375201015" target="_blank" 
+             class="block text-center bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" 
+             onclick="window.trackEvent && window.trackEvent('order_click', 'products', '${product.id}')">
+            Đặt Hàng Ngay
+          </a>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Pagination function with icons
+  function renderPagination(totalPages) {
+    const container = document.getElementById('pagination-container');
+    
+    if (totalPages <= 1) {
+      container.innerHTML = '';
+      return;
+    }
+
+    let paginationHTML = `
+      <div class="flex items-center justify-center space-x-3">
+        ${Array.from({length: totalPages}, (_, i) => i + 1).map(page => `
+          <button onclick="changePage(${page})" 
+                  aria-label="Chuyển đến trang ${page}"
+                  class="w-8 h-8 rounded-full transition-all duration-300 flex items-center justify-center ${page === currentPage ? 'bg-emerald-700 ring-2 ring-emerald-300' : 'bg-gray-400 hover:bg-gray-500'}"
+                  ${page === currentPage ? 'aria-current="page"' : ''}>
+            <span class="sr-only">Trang ${page}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+    
+    container.innerHTML = paginationHTML;
+  }
+
+  // Change page function
+  window.changePage = function(page) {
+    currentPage = page;
+    loadProducts();
+    
+    // Track pagination
+    if (window.trackEvent) {
+      window.trackEvent('pagination', 'products', `page_${page}`);
+    }
+  };
+
+  // Initialize products on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    loadProducts();
+  });
+</script>

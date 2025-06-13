@@ -1,0 +1,278 @@
+---
+// Contact section with lead generation form
+---
+
+<section id="lien-he" class="py-12 bg-white" role="region" aria-labelledby="contact-title">
+  <div class="container mx-auto px-6 max-w-6xl">
+    <!-- Section Header -->
+    <div class="text-center mb-8">
+      <h2 id="contact-title" class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Liên Hệ Báo Giá
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        Gửi thông tin yêu cầu, chúng tôi sẽ tư vấn và báo giá trong vòng 30 phút
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+      <!-- Contact Form -->
+      <div class="bg-white rounded-xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">Gửi Yêu Cầu Báo Giá</h3>
+        
+        <form class="space-y-4" action="#" method="POST" onsubmit="window.trackFormSubmission && window.trackFormSubmission('contact_form'); return false;">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm font-bold text-gray-700 mb-1">
+              Họ và Tên *
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 hover:border-emerald-400 text-sm"
+              placeholder="Nguyễn Văn A"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block text-sm font-bold text-gray-700 mb-1">
+              Số Điện Thoại *
+            </label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 hover:border-emerald-400 text-sm"
+              placeholder="0123 456 789"
+            />
+          </div>
+
+          <!-- Company -->
+          <div>
+            <label for="company" class="block text-sm font-bold text-gray-700 mb-1">
+              Tên Công Ty
+            </label>
+            <input 
+              type="text" 
+              id="company" 
+              name="company"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 hover:border-emerald-400 text-sm"
+              placeholder="Công ty ABC"
+            />
+          </div>
+
+          <!-- Product Type -->
+          <div>
+            <label for="product" class="block text-sm font-bold text-gray-700 mb-1">
+              Loại Sản Phẩm Quan Tâm *
+            </label>
+            <select 
+              id="product" 
+              name="product" 
+              required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 hover:border-emerald-400 text-sm"
+            >
+              <option value="">Chọn loại thùng carton</option>
+              <option value="3-layer">Thùng carton 3 lớp</option>
+              <option value="5-layer">Thùng carton 5 lớp</option>
+              <option value="7-layer">Hộp Nắp Gài </option>
+              <option value="custom">Sản xuất theo yêu cầu</option>
+            </select>
+          </div>
+
+          <!-- Quantity -->
+          <div>
+            <label for="quantity" class="block text-sm font-bold text-gray-700 mb-1">
+              Số Lượng Dự Kiến
+            </label>
+            <select 
+              id="quantity" 
+              name="quantity"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 hover:border-emerald-400 text-sm"
+            >
+              <option value="">Chọn số lượng</option>
+              <option value="500-1000">100 - 1.000 cái</option>
+              <option value="1000-5000">1.000 - 5.000 cái</option>
+              <option value="5000-10000">5.000 - 10.000 cái</option>
+              <option value="10000+">Trên 10.000 cái</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-bold text-gray-700 mb-1">
+              Yêu Cầu Đặc Biệt
+            </label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="3"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 hover:border-emerald-400 text-sm"
+              placeholder="Kích thước, in logo, thời gian giao hàng..."
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit"
+            class="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:scale-105 text-sm"
+            onclick="window.trackFormSubmission && window.trackFormSubmission('quote_request_form')"
+          >
+            🚀 GỬI YÊU CẦU BÁO GIÁ
+          </button>
+
+          <p class="text-xs text-gray-500 text-center">
+            * Chúng tôi cam kết bảo mật thông tin khách hàng 100%
+          </p>
+        </form>
+      </div>
+
+      <!-- Right Side Information -->
+      <div class="space-y-4">
+        <!-- Thông Tin Liên Hệ -->
+        <div class="bg-gradient-to-r from-slate-600 to-slate-800 rounded-xl p-5 text-white shadow-xl border border-slate-200/10 hover:from-slate-500 hover:to-slate-700 transition-all duration-300 transform hover:scale-105">
+          <h3 class="text-lg font-bold mb-4">Thông Tin Liên Hệ</h3>
+          
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center space-x-3">
+              <span class="text-yellow-400 text-lg">📞</span>
+              <div>
+                <p class="font-bold">Hotline</p>
+                <a href="tel:+84375201015" class="text-yellow-300 hover:text-yellow-200 font-bold" onclick="window.trackPhoneCall && window.trackPhoneCall('+84375201015')">0375 20 10 15</a>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-green-400 text-lg">📧</span>
+              <div>
+                <p class="font-bold">Email</p>
+                <a href="mailto:admin@thungcartonbienhoa.vn" class="text-green-300 hover:text-green-200 font-bold" onclick="window.trackEvent && window.trackEvent('email_click', 'contact', 'admin@thungcartonbienhoa.vn')">admin@thungcartonbienhoa.vn</a>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-blue-400 text-lg">💬</span>
+              <div>
+                <p class="font-bold">Chat Zalo</p>
+                <span class="text-blue-300">0375 20 10 15</span>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-red-400 text-lg">📍</span>
+              <div>
+                <p class="font-bold">Địa chỉ</p>
+                <span class="text-red-200">26/87 Đoàn Văn Cự - Ấp Vàm, Thiện Tân, Vĩnh Cửu, Đồng Nai</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giờ Làm Việc -->
+        <div class="bg-gradient-to-r from-gray-600 to-gray-800 rounded-xl p-5 text-white shadow-xl border border-gray-200/10 hover:from-gray-500 hover:to-gray-700 transition-all duration-300 transform hover:scale-105">
+          <h3 class="text-lg font-bold mb-4">Giờ Làm Việc</h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span class="font-medium">Thứ 2 - Thứ 6:</span>
+              <span class="text-green-200 font-bold">8:00 - 17:30</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-medium">Thứ 7:</span>
+              <span class="text-green-200 font-bold">8:00 - 16:30</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-medium">Chủ Nhật:</span>
+              <span class="text-red-200 font-bold">Nghỉ</span>
+            </div>
+            <div class="border-t border-white/20 pt-3 mt-4">
+              <p class="text-sm opacity-75">
+                💡 Hotline 24/7 hỗ trợ đơn hàng gấp
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cam Kết -->
+        <div class="bg-gradient-to-r from-slate-700 to-slate-900 rounded-xl p-5 text-white shadow-xl border border-slate-200/10 hover:from-slate-600 hover:to-slate-800 transition-all duration-300 transform hover:scale-105">
+          <h3 class="text-lg font-bold mb-4">Cam Kết</h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-start space-x-3">
+              <span class="text-green-400 text-lg">✅</span>
+              <span>Giá trực tiếp nhà máy sản xuất</span>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-green-400 text-lg">✅</span>
+              <span>Tư vấn, thiết kế miễn phí</span>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-green-400 text-lg">✅</span>
+              <span>Đúng chất lượng và tiến độ cam kết</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+  // Form submission with Google Ads conversion tracking
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Track conversion for Google Ads
+    if (window.gtag) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+        'value': 1.0,
+        'currency': 'VND'
+      });
+    }
+    
+    // Simulate form submission success
+    const button = this.querySelector('button[type="submit"]');
+    const originalText = button.innerHTML;
+    button.innerHTML = '✅ Đã Gửi Thành Công!';
+    button.disabled = true;
+    button.classList.add('bg-green-500', 'cursor-not-allowed');
+    
+    // Show success message
+    setTimeout(() => {
+      alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ trong vòng 30 phút.');
+      button.innerHTML = originalText;
+      button.disabled = false;
+      button.classList.remove('bg-green-500', 'cursor-not-allowed');
+      this.reset();
+    }, 2000);
+  });
+</script>
+
+<!-- Back to Top Button -->
+<div id="back-to-top" class="fixed bottom-8 right-8 z-50 opacity-0 invisible transition-all duration-300">
+  <button 
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    class="bg-gradient-to-r from-slate-600 to-slate-800 hover:from-slate-700 hover:to-slate-900 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+    aria-label="Quay lại đầu trang"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+  // Back to top button functionality
+  const backToTopButton = document.getElementById('back-to-top');
+  
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.remove('opacity-0', 'invisible');
+      backToTopButton.classList.add('opacity-100', 'visible');
+    } else {
+      backToTopButton.classList.add('opacity-0', 'invisible');
+      backToTopButton.classList.remove('opacity-100', 'visible');
+    }
+  });
+</script>

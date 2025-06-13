@@ -1,0 +1,209 @@
+---
+// Hero section with optimized background images
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden hero-section" role="banner" aria-labelledby="hero-title">
+  <!-- Optimized Background with Fallback -->
+  <div class="absolute inset-0 z-0 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
+    <!-- Removed background image to show only video -->
+    
+    <!-- Background Video with layout stability -->
+    <video 
+      muted 
+      autoplay
+      loop 
+      playsinline
+      preload="auto"
+      controls="false"
+      class="absolute inset-0 w-full h-full object-cover opacity-85 transition-opacity duration-2000"
+      id="hero-video"
+      data-video-name="hero_background"
+      aria-label="Video giới thiệu nhà máy sản xuất thùng carton chất lượng cao tại Biên Hòa"
+      poster="/hero-video-poster.jpg"
+      width="1920"
+      height="1080"
+      style="contain: layout; pointer-events: none;"
+    >
+      <source src="/hero-video-optimized.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <!-- Lighter Overlay for video visibility -->
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <!-- Top Trust Badge -->
+  <div class="absolute top-8 left-8 z-20">
+    <div class="bg-green-500/90 backdrop-blur-sm rounded-lg px-4 py-3 flex items-center space-x-2 shadow-lg">
+      <span class="text-2xl">🏭</span>
+      <div class="text-left">
+        <div class="text-white text-sm font-semibold">Nhà máy sản xuất tại Đồng Nai</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Content Container -->
+  <div class="relative z-10 w-full pl-8 pr-6 lg:pl-12 lg:pr-8 mt-20">
+    <!-- Main Headlines positioned under the badge -->
+    <div class="mb-8 text-left max-w-4xl">
+      <h1 id="hero-title" class="text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight drop-shadow-2xl text-left">
+        <span class="bg-gradient-to-r from-blue-300 via-white to-blue-200 bg-clip-text text-transparent">
+          BAO BÌ CARTON
+        </span>
+        <br>
+        <span class="text-green-300 drop-shadow-lg">HOÀNG NAM NHƯ</span>
+      </h1>
+      
+      <p class="text-xl lg:text-2xl text-white mb-6 font-medium drop-shadow-lg leading-relaxed text-left">
+        <span class="text-green-300 font-bold">Giải Pháp Đóng Gói Toàn Diện Cho Doanh Nghiệp</span>
+      </p>
+      
+      <p class="text-xl lg:text-2xl text-white mb-8 drop-shadow-lg text-left max-w-4xl font-semibold leading-relaxed">
+        <span class="bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent">
+          Chuyên sản xuất thùng carton 3-5-7 lớp, Hộp Nắp Gài, Hộp Ship COD, tấm lót các loại theo yêu cầu
+        </span>
+      </p>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-start items-start mb-12">
+      <a href="tel:0375201015" 
+         class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-2xl hover:shadow-green-500/25 hover:scale-105 flex items-center gap-2 min-w-[200px] justify-center"
+         onclick="window.trackQuoteRequest && window.trackQuoteRequest('hero_cta')"
+         role="button"
+         aria-label="Gọi ngay để được tư vấn và báo giá">
+        📞 Gọi ngay: 0375.20.10.15
+      </a>
+      
+      <a href="https://zalo.me/0375201015" 
+         target="_blank"
+         rel="noopener noreferrer"
+         class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-2xl hover:shadow-blue-500/25 hover:scale-105 flex items-center gap-2 min-w-[200px] justify-center"
+         onclick="window.trackZaloContact && window.trackZaloContact('hero_zalo')"
+         role="button"
+         aria-label="Chat Zalo - Tư vấn trực tiếp qua Zalo">
+        💬 Chat Zalo
+      </a>
+    </div>
+
+    <!-- Trust Indicators & Stats - Left aligned like text content -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mb-8">
+      <div class="bg-black/5 p-6 rounded-2xl hover:bg-black/10 transition-all duration-300 hover:scale-105 text-center">
+        <div class="text-4xl font-bold text-white flex items-center justify-center gap-2 drop-shadow-2xl mb-3">
+          <span>🏭</span>
+        </div>
+        <div class="text-white font-bold text-lg drop-shadow-2xl mb-1">Nhà máy hiện đại</div>
+        <div class="text-blue-200 text-sm drop-shadow-2xl">Công nghệ tự động hóa</div>
+      </div>
+      
+      <div class="bg-black/5 p-6 rounded-2xl hover:bg-black/10 transition-all duration-300 hover:scale-105 text-center">
+        <div class="text-4xl font-bold text-white flex items-center justify-center gap-2 drop-shadow-2xl mb-3">
+          <span>👥</span>
+          <span class="text-green-300">1000+</span>
+        </div>
+        <div class="text-white font-bold text-lg drop-shadow-2xl">Khách hàng</div>
+      </div>
+      
+      <div class="bg-black/5 p-6 rounded-2xl hover:bg-black/10 transition-all duration-300 hover:scale-105 text-center">
+        <div class="text-4xl font-bold text-white flex items-center justify-center gap-2 drop-shadow-2xl mb-3">
+          <span>📦</span>
+          <span class="text-green-300">1 Triệu</span>
+        </div>
+        <div class="text-white font-bold text-lg drop-shadow-2xl">Sản phẩm/tháng</div>
+      </div>
+    </div>
+  </div>
+    
+  <!-- Scroll Indicator - Mouse Icon -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+    <button class="scroll-indicator text-white opacity-80 hover:opacity-100 transition-all duration-300 animate-bounce bg-transparent border-0 cursor-pointer p-2" 
+            aria-label="Cuộn xuống để xem thêm nội dung" 
+            onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})"
+            type="button">
+      <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+      </div>
+    </button>
+  </div>
+</section>
+
+<script>
+  // Performance-optimized video loading with fallbacks
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('hero-video');
+    const fallbackImage = document.getElementById('hero-fallback');
+    
+    // Enhanced Intersection Observer with better performance
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && video) {
+          // Delay video loading to prioritize critical resources
+          requestIdleCallback(() => {
+            video.load();
+            
+            // Enhanced video handling for full duration playback
+            video.addEventListener('loadedmetadata', () => {
+              console.log('Video loaded - Duration:', video.duration, 'seconds');
+              video.currentTime = 0;
+            });
+            
+            video.addEventListener('loadeddata', () => {
+              video.play().then(() => {
+                // Successful video load - show video with high clarity
+                video.style.opacity = '0.9';
+                if (fallbackImage) {
+                  fallbackImage.style.opacity = '0.05';
+                  fallbackImage.style.filter = 'blur(3px) brightness(0.2)';
+                }
+                console.log('Video playing full duration:', video.duration, 'seconds');
+              }).catch(() => {
+                // Video failed - keep fallback image visible
+                console.log('Video autoplay blocked - using fallback image');
+                video.style.display = 'none';
+                if (fallbackImage) {
+                  fallbackImage.style.opacity = '0.8';
+                  fallbackImage.style.filter = 'brightness(0.6)';
+                }
+              });
+            });
+            
+            // Ensure video plays full duration without cuts
+            video.addEventListener('canplaythrough', () => {
+              if (video.paused) {
+                video.play();
+              }
+            });
+            
+            // Perfect seamless loop
+            video.addEventListener('ended', () => {
+              video.currentTime = 0;
+              video.play();
+            });
+            
+            // Prevent seeking issues that could cut video short
+            video.addEventListener('seeking', () => {
+              if (video.currentTime > video.duration - 0.5) {
+                video.currentTime = 0;
+              }
+            });
+            
+            // Handle video errors gracefully
+            video.addEventListener('error', () => {
+              video.style.display = 'none';
+              if (fallbackImage) fallbackImage.style.opacity = '0.6';
+            });
+          });
+          
+          videoObserver.unobserve(video);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '50px 0px'
+    });
+    
+    if (video) {
+      videoObserver.observe(video);
+    }
+  });
+</script>

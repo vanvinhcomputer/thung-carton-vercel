@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lading.thungcartonbienhoa.vn/sitemap.xml
+
+# Specific crawl permissions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block specific paths if any
+Disallow: /admin/
+Disallow: /.well-known/

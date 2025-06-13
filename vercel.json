@@ -1,0 +1,17 @@
+{
+  "regions": ["sin1"],
+  "routes": [
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/(.*\\.(mp4|webm|avi|mov))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
