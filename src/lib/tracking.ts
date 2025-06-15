@@ -30,32 +30,25 @@ export const initGlobalTracking = () => {
     }
   };
 
-  // Phone call tracking
-window.trackPhoneCall = (number: string) => {
-  // Google Ads conversion tracking
-  if (window.gtag) {
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-16973275272/grdNCKXrprMaEIjBvp0_'
-    });
-  }
-  
-  // GA4 tracking  
-  if (window.gtag) {
-    window.gtag('event', 'phone_call', {
-      event_category: 'communication',
-      event_label: number,
-      value: 1
-    });
-  }
-  
-  // Facebook Pixel
-  if (window.fbq) {
-    window.fbq('track', 'Contact', {
-      content_name: 'Phone Call',
-      phone_number: number
-    });
-  }
-}; // <-- Đảm bảo có dấu ; và }
+  // Phone call tracking with Google Ads conversion
+  window.trackPhoneCall = (number: string) => {
+    // Google Ads conversion tracking
+    if (window.gtag) {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-16973275272/grdNCKXrprMaEIjBvp0_'
+      });
+    }
+    
+    // GA4 tracking
+    if (window.gtag) {
+      window.gtag('event', 'phone_call', {
+        event_category: 'communication',
+        event_label: number,
+        value: 1
+      });
+    }
+    
+    // Facebook Pixel
     if (window.fbq) {
       window.fbq('track', 'Contact', {
         content_name: 'Phone Call',
